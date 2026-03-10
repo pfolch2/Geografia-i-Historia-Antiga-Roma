@@ -899,5 +899,110 @@ function selectOption(element,correct,resultId){
 
 </div>
 
+<!-- ================= APARTAT 9 - TEORIA ================= -->
+
+<div class="page" id="page17">
+
+<div class="readable">
+
+<h2>9) El llegat de Roma</h2>
+
+<p>L’Imperi Romà va desaparèixer fa molts segles.</p>
+
+<p>Tot i això, els romans van deixar un gran llegat.</p>
+
+<p>Moltes llengües actuals provenen del llatí.</p>
+
+<p>També van deixar lleis, carreteres, ciutats i edificis.</p>
+
+<p>La cultura romana encara influeix en la nostra societat.</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+
+<button onclick="goToPage(18)">Següent</button>
+<button onclick="goToPage(16)">Anterior</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= APARTAT 9 - PREGUNTES ================= -->
+
+<div class="page" id="page18">
+
+<div class="readable">
+
+<h2>Preguntes</h2>
+
+<p>1) De quina llengua provenen moltes llengües actuals?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,true,'r91')">a) Del llatí</span>
+<span class="option" onclick="selectOption(this,false,'r91')">b) Del grec modern</span>
+<span class="option" onclick="selectOption(this,false,'r91')">c) De l’egipci</span>
+</div>
+
+<p id="r91"></p>
+
+<p>2) Quin és un exemple del llegat romà?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,false,'r92')">a) Piràmides</span>
+<span class="option" onclick="selectOption(this,true,'r92')">b) Carreteres</span>
+<span class="option" onclick="selectOption(this,false,'r92')">c) Rascacels</span>
+</div>
+
+<p id="r92"></p>
+
+<p>Pregunta oberta:</p>
+<p>Escriu una cosa que els romans ens han deixat.</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+
+<button onclick="showResults()">Veure resultat final</button>
+<button onclick="goToPage(17)">Anterior</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= RESULTAT FINAL ================= -->
+
+<div class="page" id="page19">
+
+<h2>Resultat final</h2>
+
+<p id="scoreText"></p>
+
+<div class="controls">
+<button onclick="goToPage(1)">Tornar a començar</button>
+</div>
+
+</div>
+
 </body>
 </html>
