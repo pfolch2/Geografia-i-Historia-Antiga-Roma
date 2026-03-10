@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>L’Antiga Roma</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right,#f8e0d6,#fdebd0);
+  padding:20px;
+}
+
+h1{text-align:center;}
+
+.page{
+  display:none;
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.page.active{display:block;}
+
+.highlight-normal{ background:#fff176; }
+.highlight-slow{ background:#81d4fa; }
+
+.controls{
+  margin-top:20px;
+  text-align:center;
+  border-top:2px solid #ccc;
+  padding-top:15px;
+}
+
+button{
+  padding:8px 14px;
+  margin:5px;
+  border:none;
+  border-radius:6px;
+  background:#2e86c1;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{background:#21618c;}
+
+.progress-container{
+  width:100%;
+  height:15px;
+  background:#ddd;
+  border-radius:10px;
+  margin-top:15px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#28b463;
+  border-radius:10px;
+  transition:width 0.2s;
+}
+
+.option{
+  display:block;
+  margin:6px 0;
+  padding:6px;
+  cursor:pointer;
+}
+
+.option:hover{ background:#f0f0f0; }
+
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+
+</style>
+</head>
+
+<body>
+
+<h1>L’ANTIGA ROMA</h1>
+
+<!-- PAGINA 1 TEORIA -->
+<div class="page active" id="page1">
+
+<div class="readable">
+
+<h2>1. On estava situada Roma?</h2>
+
+<p>L’Antiga Roma va néixer a la península Itàlica, al sud d’Europa.</p>
+<p>La ciutat de Roma es va fundar a la vora del riu Tíber.</p>
+<p>El territori tenia muntanyes, planes fèrtils i accés al mar Mediterrani.</p>
+<p>Aquest mar facilitava el comerç i la comunicació amb altres pobles.</p>
+<p>Amb el temps, els romans van conquerir molts territoris i van crear un gran imperi.</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+<button onclick="goToPage(2)">Següent</button>
+</div>
+
+</div>
+
+<!-- PAGINA 2 PREGUNTES -->
+<div class="page" id="page2">
+
+<div class="readable">
+
+<h2>Preguntes</h2>
+
+<p>1. On es va fundar la ciutat de Roma?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,false,'r1')">a) A la vora del riu Nil</span>
+<span class="option" onclick="selectOption(this,true,'r1')">b) A la vora del riu Tíber</span>
+<span class="option" onclick="selectOption(this,false,'r1')">c) A la vora del riu Ebre</span>
+</div>
+
+<p id="r1"></p>
+
+<p>2. Quin mar era molt important per als romans?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,true,'r2')">a) Mar Mediterrani</span>
+<span class="option" onclick="selectOption(this,false,'r2')">b) Mar Negre</span>
+<span class="option" onclick="selectOption(this,false,'r2')">c) Mar del Nord</span>
+</div>
+
+<p id="r2"></p>
+
+<p>Pregunta oberta:</p>
+<p>Per què creus que el mar Mediterrani era important per als romans?</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+<button onclick="goToPage(1)">Anterior</button>
+<button onclick="goToPage(3)">Següent apartat</button>
+</div>
+
+</div>
+
+<!-- PAGINA 3 TEORIA -->
+<div class="page" id="page3">
+
+<div class="readable">
+
+<h2>2. La llegenda de la fundació de Roma</h2>
+
+<p>Segons la llegenda, Roma va ser fundada pels germans Ròmul i Rem.</p>
+<p>Quan eren petits, van ser abandonats al riu i una lloba els va cuidar i alimentar.</p>
+<p>Quan van créixer, van decidir fundar una ciutat.</p>
+<p>Finalment, Ròmul va fundar Roma l’any 753 aC.</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+<button onclick="goToPage(4)">Següent</button>
+<button onclick="goToPage(2)">Anterior</button>
+</div>
+
+</div>
+
+<!-- PAGINA 4 PREGUNTES -->
+<div class="page" id="page4">
+
+<div class="readable">
+
+<h2>Preguntes</h2>
+
+<p>1. Qui va fundar Roma segons la llegenda?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,false,'r21')">a) Juli Cèsar</span>
+<span class="option" onclick="selectOption(this,true,'r21')">b) Ròmul</span>
+<span class="option" onclick="selectOption(this,false,'r21')">c) Alexandre el Gran</span>
+</div>
+
+<p id="r21"></p>
+
+<p>2. Qui va cuidar Ròmul i Rem quan eren petits?</p>
+
+<div>
+<span class="option" onclick="selectOption(this,false,'r22')">a) Un pastor</span>
+<span class="option" onclick="selectOption(this,true,'r22')">b) Una lloba</span>
+<span class="option" onclick="selectOption(this,false,'r22')">c) Un rei</span>
+</div>
+
+<p id="r22"></p>
+
+<p>Pregunta oberta:</p>
+<p>Explica breument la llegenda de Ròmul i Rem.</p>
+
+</div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+
+<div class="controls">
+<button onclick="startReading('full')">Lectura completa</button>
+<button onclick="startReading('normal')">Lectura normal</button>
+<button onclick="startReading('slow')">Lectura lenta</button>
+<button onclick="pauseReading()">Pausa</button>
+<button onclick="resumeReading()">Reprendre</button>
+<button onclick="stopReading()">Stop</button>
+<button onclick="goToPage(5)">Següent</button>
+<button onclick="goToPage(3)">Anterior</button>
+</div>
+
+</div>
+
+<script>
+
+let currentPage = 1;
+let words=[];
+let currentIndex=0;
+let speaking=false;
+let mode="normal";
+
+window.onload=function(){
+  prepareText();
+};
+
+function goToPage(num){
+  stopReading();
+  document.getElementById("page"+currentPage).classList.remove("active");
+  currentPage=num;
+  document.getElementById("page"+currentPage).classList.add("active");
+  prepareText();
+}
+
+function prepareText(){
+
+  let readable=document.querySelector("#page"+currentPage+" .readable");
+
+  readable.querySelectorAll("p, h2").forEach(el=>{
+    let text=el.innerText;
+    el.innerHTML="";
+    text.split(" ").forEach(word=>{
+      let span=document.createElement("span");
+      span.textContent=word+" ";
+      el.appendChild(span);
+    });
+  });
+
+  words=document.querySelectorAll("#page"+currentPage+" .readable span");
+  updateProgress();
+}
+
+function startReading(selectedMode){
+
+  stopReading();
+  speaking=true;
+  mode=selectedMode;
+
+  if(mode==="full"){
+
+    let text=document.querySelector("#page"+currentPage+" .readable").innerText;
+
+    let utter=new SpeechSynthesisUtterance(text);
+    utter.lang="ca-ES";
+    speechSynthesis.speak(utter);
+
+  }else{
+    speakWord();
+  }
+}
+
+function speakWord(){
+
+  if(!speaking || currentIndex>=words.length) return;
+
+  words.forEach(w=>{
+    w.classList.remove("highlight-normal");
+    w.classList.remove("highlight-slow");
+  });
+
+  let word=words[currentIndex];
+  word.classList.add(mode==="normal"?"highlight-normal":"highlight-slow");
+
+  let utter=new SpeechSynthesisUtterance(word.textContent);
+  utter.lang="ca-ES";
+
+  utter.onend=function(){
+
+    if(mode==="slow"){
+      setTimeout(()=>{
+        currentIndex++;
+        updateProgress();
+        speakWord();
+      },1000);
+
+    }else{
+
+      currentIndex++;
+      updateProgress();
+      speakWord();
+    }
+
+  };
+
+  speechSynthesis.speak(utter);
+}
+
+function pauseReading(){ speechSynthesis.pause(); }
+function resumeReading(){ speechSynthesis.resume(); }
+
+function stopReading(){
+
+  speaking=false;
+  speechSynthesis.cancel();
+
+  words.forEach(w=>{
+    w.classList.remove("highlight-normal");
+    w.classList.remove("highlight-slow");
+  });
+
+  currentIndex=0;
+  updateProgress();
+}
+
+function updateProgress(){
+
+  let percent=(currentIndex/words.length)*100;
+  document.querySelector("#page"+currentPage+" .progress-bar").style.width=percent+"%";
+
+}
+
+function selectOption(element,correct,resultId){
+
+  let siblings=element.parentNode.querySelectorAll(".option");
+  siblings.forEach(o=>o.style.fontWeight="normal");
+
+  element.style.fontWeight="bold";
+
+  if(correct){
+    document.getElementById(resultId).innerHTML="<span class='correct'>Correcte!</span>";
+  }else{
+    document.getElementById(resultId).innerHTML="<span class='incorrect'>Incorrecte</span>";
+  }
+}
+
+</script>
+
+</body>
+</html>
